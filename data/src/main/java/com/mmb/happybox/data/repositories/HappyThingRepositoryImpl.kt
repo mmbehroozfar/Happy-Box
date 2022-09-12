@@ -17,9 +17,6 @@ class HappyThingRepositoryImpl @Inject constructor(
     override suspend fun save(happyThing: HappyThing) =
         happyThingLocalDataSource.update(happyThing.toEntity())
 
-    override suspend fun update(happyThing: HappyThing) =
-        happyThingLocalDataSource.update(happyThing.toEntity())
-
     override suspend fun delete(id: Long) = happyThingLocalDataSource.delete(id)
 
     override suspend fun getHappyThing(id: Long) =

@@ -7,8 +7,6 @@ interface HappyThingLocalDataSource {
 
     suspend fun save(happyThingEntity: HappyThingEntity)
 
-    suspend fun update(happyThingEntity: HappyThingEntity)
-
     suspend fun delete(id: Long)
 
     suspend fun getHappyThing(id: Long): HappyThingEntity

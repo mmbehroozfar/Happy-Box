@@ -3,18 +3,15 @@ package com.mmb.happybox.data.daos
 import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.mmb.moveis.data.model.entities.HappyThingEntity
 
 @Dao
 interface HappyThingDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(happyThingEntity: HappyThingEntity)
-
-    @Update
-    suspend fun update(happyThingEntity: HappyThingEntity)
 
     @Query("DELETE FROM happy_things WHERE id = :id")
     suspend fun delete(id: Long)

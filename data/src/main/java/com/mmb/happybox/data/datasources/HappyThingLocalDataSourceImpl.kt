@@ -12,9 +12,6 @@ class HappyThingLocalDataSourceImpl @Inject constructor(
     override suspend fun save(happyThingEntity: HappyThingEntity) =
         happyThingDao.insert(happyThingEntity)
 
-    override suspend fun update(happyThingEntity: HappyThingEntity) =
-        happyThingDao.update(happyThingEntity)
-
     override suspend fun delete(id: Long) = happyThingDao.delete(id)
 
     override suspend fun getHappyThing(id: Long) =

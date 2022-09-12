@@ -9,8 +9,6 @@ interface HappyThingRepository {
 
     suspend fun save(happyThing: HappyThing)
 
-    suspend fun update(happyThing: HappyThing)
-
     suspend fun delete(id: Long)
 
     suspend fun getHappyThing(id: Long): HappyThing
