@@ -4,12 +4,12 @@ import com.mmb.happybox.shared.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
-abstract class NoParamsResultUseCase<out R>(private val coroutineDispatcher: CoroutineDispatcher) {
+abstract class ResultUseCase<in T, out R>(private val coroutineDispatcher: CoroutineDispatcher) {
 
-    suspend operator fun invoke(): Result<R> {
+    suspend operator fun invoke(params: T): Result<R> {
         return try {
             withContext(coroutineDispatcher) {
-                execute().let {
+                execute(params).let {
                     Result.Success(it)
                 }
             }
@@ -20,5 +20,5 @@ abstract class NoParamsResultUseCase<out R>(private val coroutineDispatcher: Cor
     }
 
     @Throws(RuntimeException::class)
-    protected abstract suspend fun execute(): R
+    protected abstract suspend fun execute(params: T): R
 }

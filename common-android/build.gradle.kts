@@ -45,6 +45,7 @@ dependencies {
     testImplementation(project(":android-test-shared"))
     addUnitTestDependencies()
 
+    implementation(Libraries.AndroidX.Room.roomPaging)
     kapt(Libraries.Hilt.compiler)
     implementation(Libraries.Hilt.core)
 }
