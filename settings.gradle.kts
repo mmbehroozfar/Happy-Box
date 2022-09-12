@@ -1,0 +1,12 @@
+rootProject.name = "Happy Box"
+include(":app")
+include(":common-ui")
+include(":common-android")
+include(":model")
+include(":data-model")
+include(":shared")
+include(":domain")
+include(":data")
+include(":android-test-shared")
+include(":ui-cheerup")
+include(":domain-model")
