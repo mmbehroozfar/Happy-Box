@@ -1,9 +1,10 @@
 package com.mmb.happybox.domain.mappers
 
-import com.mmb.happybox.domain.model.HappyThing as HappyThingDomain
-import com.mmb.happybox.model.HappyThing as HappyThingUi
+import com.mmb.happybox.domain.model.HappyThingDomain
+import com.mmb.happybox.model.HappyThing
 
-internal fun HappyThingDomain.toUiModel() = HappyThingDomain(
+
+internal fun HappyThingDomain.toUiModel() = HappyThing(
     id = id,
     name = name,
 )
@@ -12,7 +13,7 @@ internal fun List<HappyThingDomain>.toUiModel() = map {
     it.toUiModel()
 }
 
-internal fun HappyThingUi.toDomainModel() = HappyThingDomain(
+internal fun HappyThing.toDomainModel() = HappyThingDomain(
     id = id,
     name = name,
 )
