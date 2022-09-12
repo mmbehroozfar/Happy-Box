@@ -26,6 +26,6 @@ interface HappyThingDao {
     suspend fun getHappyThingEntities(): List<HappyThingEntity>
 
     @Query("SELECT * FROM happy_things")
-    fun observePagedMovies(): PagingSource<Int, HappyThingEntity>
+    fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity>
 
 }

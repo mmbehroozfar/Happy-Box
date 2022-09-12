@@ -1,7 +1,9 @@
-package com.mmb.happybox.data.database
+package com.mmb.happybox.data.di
 
 import android.content.Context
 import androidx.room.Room
+import com.mmb.happybox.data.database.HappyBoxDatabase
+import com.mmb.happybox.data.database.HappyBoxRoomDatabase
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -20,6 +22,7 @@ abstract class DatabaseModule {
         db: HappyBoxRoomDatabase,
     ): HappyBoxDatabase
 
+
     companion object {
         @Provides
         @Singleton
@@ -29,5 +32,11 @@ abstract class DatabaseModule {
             return Room.databaseBuilder(context, HappyBoxRoomDatabase::class.java, "happy-box-db")
                 .build()
         }
+
+        @Provides
+        @Singleton
+        fun provideHappyThingDao(
+            db: HappyBoxRoomDatabase,
+        ) = db.happyThingsDao()
     }
 }
