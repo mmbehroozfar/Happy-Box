@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.databinding.BindingAdapter
+import com.ncorti.slidetoact.SlideToActView
 
 @BindingAdapter("goneIfEmpty")
 fun View.goneIfEmpty(value: String) {
@@ -13,4 +14,9 @@ fun View.goneIfEmpty(value: String) {
 @BindingAdapter("selected")
 fun TextView.selected(value: Boolean) {
     isSelected = value
+}
+
+@BindingAdapter("lockIfEmpty")
+fun SlideToActView.lockIfEmpty(value: String) {
+    isLocked = value.isEmpty()
 }

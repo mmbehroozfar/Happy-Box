@@ -26,4 +26,7 @@ interface HappyThingDao {
     @Query("SELECT * FROM happy_things")
     fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity>
 
+    @Query("SELECT * FROM happy_things ORDER BY RANDOM() LIMIT 1")
+    fun getRandomHappyThingEntity(): HappyThingEntity
+
 }

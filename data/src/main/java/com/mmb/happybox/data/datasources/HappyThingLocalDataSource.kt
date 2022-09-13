@@ -16,4 +16,6 @@ interface HappyThingLocalDataSource {
 
     fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity>
 
+    suspend fun getRandomHappyThing(): HappyThingEntity
+
 }

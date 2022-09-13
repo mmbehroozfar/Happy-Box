@@ -13,8 +13,10 @@ interface HappyThingRepository {
 
     suspend fun getHappyThing(id: Long): HappyThingDomain
 
-     fun getHappyThings(): Flow<List<HappyThingDomain>>
+    fun getHappyThings(): Flow<List<HappyThingDomain>>
 
     fun observePagedHappyThings(pagingConfig: PagingConfig): Flow<PagingData<HappyThingDomain>>
+
+    suspend fun getRandomHappyThing(): HappyThingDomain
 
 }

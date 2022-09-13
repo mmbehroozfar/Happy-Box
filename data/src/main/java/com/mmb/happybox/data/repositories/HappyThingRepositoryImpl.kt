@@ -33,4 +33,7 @@ class HappyThingRepositoryImpl @Inject constructor(
         it.toDomainModel()
     }
 
+    override suspend fun getRandomHappyThing() =
+        happyThingLocalDataSource.getRandomHappyThing().toDomainModel()
+
 }

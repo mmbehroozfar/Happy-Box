@@ -21,4 +21,7 @@ class HappyThingLocalDataSourceImpl @Inject constructor(
 
     override fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity> =
         happyThingDao.observePagedHappyThings()
+
+    override suspend fun getRandomHappyThing() = happyThingDao.getRandomHappyThingEntity()
+
 }

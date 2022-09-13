@@ -80,6 +80,7 @@
             android:layout_marginVertical="@dimen/dimen_32"
             android:elevation="6dp"
             app:area_margin="@dimen/dimen_8"
+            lockIfEmpty="@{vm.happyThings}"
             app:border_radius="@dimen/dimen_32"
             app:bump_vibration="50"
             app:inner_color="@color/yellow"
