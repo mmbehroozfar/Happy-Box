@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mmb.happybox.cheerup.home.HomeViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         tools:context=".home.HomeFragment">
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_4"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_8">
+
+            <ImageButton
+                android:id="@+id/faq_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:onClick="@{()->vm.onFaqClicked()}"
+                android:src="@drawable/ic_info" />
+
+            <ImageButton
+                android:id="@+id/happy_things_list_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:onClick="@{()->vm.onHappyThingsListClicked()}"
+                android:src="@drawable/ic_bookmark" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stars" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:text="@string/cheerup_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h1" />
+
+        <TextView
+            android:id="@+id/happy_things_up_txt"
+            goneIfEmpty="@{vm.happyThings}"
+            selected="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/brand"
+            android:ellipsize="marquee"
+            android:paddingVertical="@dimen/dimen_4"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{vm.happyThings}"
+            android:textAlignment="center"
+            android:textSize="@dimen/h2"
+            tools:text="Sample - Sample - Sample - Sample - Sample" />
+
+        <com.ncorti.slidetoact.SlideToActView
+            android:id="@+id/cheerup_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_16"
+            android:layout_marginVertical="@dimen/dimen_32"
+            android:elevation="6dp"
+            app:area_margin="@dimen/dimen_8"
+            lockIfEmpty="@{vm.happyThings}"
+            app:border_radius="@dimen/dimen_32"
+            app:bump_vibration="50"
+            app:inner_color="@color/yellow"
+            app:outer_color="@color/brand"
+            app:text="@string/cheer_me_up"
+            app:text_size="@dimen/h3" />
+
+        <TextView
+            android:id="@+id/happy_things_down_txt"
+            goneIfEmpty="@{vm.happyThings}"
+            selected="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/brand"
+            android:ellipsize="marquee"
+            android:paddingVertical="@dimen/dimen_4"
+            android:singleLine="true"
+            android:text="@{vm.happyThings}"
+            android:textAlignment="center"
+            android:textSize="@dimen/h2"
+            tools:text="Sample - Sample - Sample - Sample - Sample" />
+
+    </LinearLayout>
 </layout>

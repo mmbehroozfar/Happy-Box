@@ -2,6 +2,7 @@ package com.mmb.happybox.data.datasources
 
 import androidx.paging.PagingSource
 import com.mmb.moveis.data.model.entities.HappyThingEntity
+import kotlinx.coroutines.flow.Flow
 
 interface HappyThingLocalDataSource {
 
@@ -11,8 +12,10 @@ interface HappyThingLocalDataSource {
 
     suspend fun getHappyThing(id: Long): HappyThingEntity
 
-    suspend fun getHappyThings(): List<HappyThingEntity>
+    fun getHappyThings(): Flow<List<HappyThingEntity>>
 
     fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity>
+
+    suspend fun getRandomHappyThing(): HappyThingEntity
 
 }

@@ -6,4 +6,9 @@
     <dimen name="dimen_8">8dp</dimen>
     <dimen name="dimen_4">4dp</dimen>
     <dimen name="dimen_2">2dp</dimen>
+
+    <dimen name="h1">32sp</dimen>
+    <dimen name="h2">25sp</dimen>
+    <dimen name="h3">18sp</dimen>
+    <dimen name="h4">10sp</dimen>
 </resources>

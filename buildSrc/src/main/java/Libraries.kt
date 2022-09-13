@@ -43,6 +43,7 @@ object BuildPlugins {
 object Libraries {
     const val multidex = "androidx.multidex:multidex:2.0.1"
     const val material = "com.google.android.material:material:1.6.1"
+    const val slider = "com.ncorti:slidetoact:0.9.0"
 
     object AndroidX {
         const val appCompat = "androidx.appcompat:appcompat:1.5.0"
