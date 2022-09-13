@@ -17,7 +17,7 @@ class HappyThingLocalDataSourceImpl @Inject constructor(
     override suspend fun getHappyThing(id: Long) =
         happyThingDao.getHappyThingEntity(id)
 
-    override suspend fun getHappyThings() = happyThingDao.getHappyThingEntities()
+    override fun getHappyThings() = happyThingDao.getHappyThingEntities()
 
     override fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity> =
         happyThingDao.observePagedHappyThings()

@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.mmb.moveis.data.model.entities.HappyThingEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HappyThingDao {
@@ -20,7 +21,7 @@ interface HappyThingDao {
     suspend fun getHappyThingEntity(id: Long): HappyThingEntity
 
     @Query("SELECT * FROM happy_things LIMIT 15")
-    suspend fun getHappyThingEntities(): List<HappyThingEntity>
+    fun getHappyThingEntities(): Flow<List<HappyThingEntity>>
 
     @Query("SELECT * FROM happy_things")
     fun observePagedHappyThings(): PagingSource<Int, HappyThingEntity>
