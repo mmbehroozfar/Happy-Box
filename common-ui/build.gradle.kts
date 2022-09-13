@@ -54,6 +54,8 @@ dependencies {
     api(Libraries.AndroidX.Navigation.ui)
     api(Libraries.AndroidX.Navigation.core)
     api(Libraries.AndroidX.swipeRefreshLayout)
+    api(Libraries.AndroidX.Lifecycle.viweModel)
+    api(Libraries.AndroidX.Lifecycle.livedata)
     implementation(Libraries.Kotlin.jdk)
     implementation(Libraries.Hilt.core)
     kapt(Libraries.Hilt.compiler)

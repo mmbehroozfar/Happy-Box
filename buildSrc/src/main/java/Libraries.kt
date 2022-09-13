@@ -74,6 +74,12 @@ object Libraries {
             const val test = "androidx.room:room-testing:$version"
             const val roomPaging = "androidx.room:room-paging:2.4.3"
         }
+
+        object Lifecycle {
+            private const val version = "2.5.1"
+            const val viweModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+            const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
+        }
     }
 
     object Hilt {
