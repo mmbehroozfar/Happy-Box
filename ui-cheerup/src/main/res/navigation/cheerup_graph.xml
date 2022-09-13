@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cheerup_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mmb.happybox.cheerup.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_faqFragment"
+            app:destination="@id/faqFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_happyThingsListFragment"
+            app:destination="@id/happyThingsListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/faqFragment"
+        android:name="com.mmb.happybox.cheerup.faq.FaqFragment"
+        android:label="@string/faq"
+        tools:layout="@layout/fragment_faq" />
+
+    <dialog
+        android:id="@+id/happyThingFragment"
+        android:name="com.mmb.happybox.cheerup.happything.HappyThingFragment"
+        android:label="@string/happy_thing"
+        tools:layout="@layout/fragment_happy_thing" />
+
+    <fragment
+        android:id="@+id/happyThingsListFragment"
+        android:name="com.mmb.happybox.cheerup.happythingslist.HappyThingsListFragment"
+        android:label="@string/happy_things_list"
+        tools:layout="@layout/fragment_happy_things_list">
+        <action
+            android:id="@+id/action_happyThingsListFragment_to_happyThingFragment"
+            app:destination="@id/happyThingFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/resultFragment"
+        android:name="com.mmb.happybox.cheerup.result.ResultFragment"
+        android:label="@string/result"
+        tools:layout="@layout/fragment_result" />
+
+</navigation>
