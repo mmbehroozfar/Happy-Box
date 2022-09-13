@@ -76,4 +76,5 @@ dependencies {
     kapt(Libraries.Hilt.compiler)
     implementation(Libraries.Hilt.core)
     implementation(Libraries.multidex)
+    implementation(Libraries.AndroidX.splashScreen)
 }
