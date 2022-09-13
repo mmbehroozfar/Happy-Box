@@ -51,6 +51,7 @@ object Libraries {
         const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
         const val paging = "androidx.paging:paging-runtime:3.1.0"
         const val pagingCommonKtx = "androidx.paging:paging-common-ktx:3.1.0"
+        const val splashScreen = "androidx.core:core-splashscreen:1.0.0"
 
         object Navigation {
             const val version = "2.5.1"
