@@ -8,4 +8,11 @@
     <string name="cheerup_title">To Feel Better\nSwipe The Button</string>
     <string name="cheer_me_up">Cheer Me Up....</string>
     <string name="i_ll_do_it">I\'ll do it</string>
+    <string name="add_new_happy_thing">Add new Happy Thing</string>
+    <string name="edit_happy_thing">Edit Happy Thing</string>
+    <string name="delete_happy_thing">Delete Happy Thing</string>
+    <string name="happy_things">Happy Things</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="yes_delete">Yes, delete.</string>
+    <string name="delete_item">DeleteItem</string>
 </resources>

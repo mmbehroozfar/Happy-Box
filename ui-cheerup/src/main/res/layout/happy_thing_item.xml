@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="kotlin.jvm.functions.Function0" />
+
+        <import type="kotlin.Unit" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="onEditClicked"
+            type="Function0&lt;Unit>" />
+
+        <variable
+            name="onDeleteClicked"
+            type="Function0&lt;Unit>" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_4"
+        android:background="@drawable/item_background"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_16">
+
+        <TextView
+            android:id="@+id/name_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/h3"
+            tools:text="Buy an ice cream" />
+
+        <ImageButton
+            android:id="@+id/edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_4"
+            android:background="@null"
+            android:contentDescription="@string/edit_happy_thing"
+            android:onClick="@{()->onEditClicked.invoke()}"
+            android:src="@drawable/ic_pen" />
+
+        <ImageButton
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4"
+            android:background="@null"
+            android:contentDescription="@string/delete_happy_thing"
+            android:onClick="@{()->onDeleteClicked.invoke()}"
+            android:src="@drawable/ic_bin" />
+
+    </LinearLayout>
+</layout>

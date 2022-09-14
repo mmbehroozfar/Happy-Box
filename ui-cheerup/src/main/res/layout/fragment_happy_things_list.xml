@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <data>
+
+        <variable
+            name="vm"
+            type="com.mmb.happybox.cheerup.happythingslist.HappyThingsListViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".happythingslist.HappyThingsListFragment">
+        tools:background="@color/primary">
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_4"
+                android:text="@string/happy_things"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/h1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/items_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/happy_thing_item" />
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="@dimen/dimen_16"
+            android:background="@drawable/circle_fab_background"
+            android:backgroundTint="@color/brand"
+            android:contentDescription="@string/add_new_happy_thing"
+            android:onClick="@{()->vm.onAddItemClicked()}"
+            android:padding="@dimen/dimen_16"
+            android:src="@drawable/ic_add" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

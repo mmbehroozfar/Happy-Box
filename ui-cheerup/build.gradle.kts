@@ -62,4 +62,5 @@ dependencies {
     kapt(Libraries.Hilt.compiler)
     implementation(Libraries.Hilt.core)
     implementation(Libraries.slider)
+    implementation(Libraries.AndroidX.recyclerview)
 }
