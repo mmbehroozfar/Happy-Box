@@ -34,5 +34,4 @@ class DeleteItemFragment : DialogFragment(R.layout.fragment_delete) {
         }
     }
 
-
 }

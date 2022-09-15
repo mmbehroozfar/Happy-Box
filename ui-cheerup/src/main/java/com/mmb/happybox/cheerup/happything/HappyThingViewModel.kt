@@ -60,4 +60,5 @@ class HappyThingViewModel @Inject constructor(
                 }
         }
     }
+
 }

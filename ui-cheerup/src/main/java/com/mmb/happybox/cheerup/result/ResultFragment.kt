@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.mmb.happybox.cheerup.R
 import com.mmb.happybox.cheerup.databinding.FragmentResultBinding
+import com.mmb.happybox.cheerup.utils.setDialogBackground
 import com.mmb.happybox.common.ui.extenstions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -21,7 +22,6 @@ class ResultFragment : DialogFragment(R.layout.fragment_result) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setDialogBackground()
-
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
@@ -34,7 +34,4 @@ class ResultFragment : DialogFragment(R.layout.fragment_result) {
         }
     }
 
-    private fun setDialogBackground() {
-        dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_background)
-    }
 }

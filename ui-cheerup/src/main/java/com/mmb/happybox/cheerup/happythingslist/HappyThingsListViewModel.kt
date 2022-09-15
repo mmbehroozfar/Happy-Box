@@ -28,4 +28,5 @@ class HappyThingsListViewModel @Inject constructor(
             _navigateToHappyThingScreen.emit(Unit)
         }
     }
+
 }

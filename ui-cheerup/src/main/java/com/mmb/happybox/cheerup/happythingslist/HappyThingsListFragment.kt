@@ -27,6 +27,24 @@ class HappyThingsListFragment : Fragment(R.layout.fragment_happy_things_list) {
             vm = viewModel
         }
 
+        initializeRecyclerView()
+        initializeObservers()
+    }
+
+    private fun initializeObservers() {
+        lifecycleScope.launch {
+            viewModel.navigateToHappyThingScreen.collect {
+                findNavController().navigate(HappyThingsListFragmentDirections.actionHappyThingsListFragmentToHappyThingFragment())
+            }
+        }
+        lifecycleScope.launchWhenCreated {
+            viewModel.happyThings.collect {
+                adapter.submitData(it)
+            }
+        }
+    }
+
+    private fun initializeRecyclerView() {
         adapter = HappyThingsPagingAdapter(
             onEditClicked = {
                 findNavController().navigate(
@@ -44,16 +62,6 @@ class HappyThingsListFragment : Fragment(R.layout.fragment_happy_things_list) {
             }
         )
         binding.itemsRv.adapter = adapter
-
-        lifecycleScope.launch {
-            viewModel.navigateToHappyThingScreen.collect {
-                findNavController().navigate(HappyThingsListFragmentDirections.actionHappyThingsListFragmentToHappyThingFragment())
-            }
-        }
-        lifecycleScope.launchWhenCreated {
-            viewModel.happyThings.collect {
-                adapter.submitData(it)
-            }
-        }
     }
+
 }

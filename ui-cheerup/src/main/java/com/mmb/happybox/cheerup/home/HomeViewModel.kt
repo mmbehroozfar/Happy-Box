@@ -51,4 +51,5 @@ class HomeViewModel @Inject constructor(
             _navigateToHappyThingsListScreen.emit(Unit)
         }
     }
+
 }
