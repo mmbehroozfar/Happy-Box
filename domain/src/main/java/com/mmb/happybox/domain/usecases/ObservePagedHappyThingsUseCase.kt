@@ -19,9 +19,9 @@ class ObservePagedHappyThingsUseCase @Inject constructor(
 
     override fun execute(): Flow<PagingData<HappyThing>> {
         val pagingConfig = PagingConfig(
-            pageSize = 5,
+            pageSize = 10,
             prefetchDistance = 3,
-            enablePlaceholders = false,
+            enablePlaceholders = true,
             initialLoadSize = 15
         )
 

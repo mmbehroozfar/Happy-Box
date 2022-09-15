@@ -27,8 +27,9 @@ class HappyThingsPagingAdapter(
     }
 
     override fun onBindViewHolder(holder: HappyThingViewHolder, position: Int) {
-        val happyThingItem = getItem(position)!!
-        holder.bind(happyThingItem)
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
 
     class HappyThingViewHolder(
