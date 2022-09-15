@@ -53,6 +53,7 @@ object Libraries {
         const val paging = "androidx.paging:paging-runtime:3.1.0"
         const val pagingCommonKtx = "androidx.paging:paging-common-ktx:3.1.0"
         const val splashScreen = "androidx.core:core-splashscreen:1.0.0"
+        const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
 
         object Navigation {
             const val version = "2.5.1"

@@ -26,6 +26,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             vm = viewModel
         }
 
+        initializeListeners()
+        initializeObservers()
+    }
+
+    private fun initializeListeners() {
         binding.cheerupSlider.onSlideCompleteListener =
             object : SlideToActView.OnSlideCompleteListener {
                 override fun onSlideComplete(view: SlideToActView) {
@@ -33,7 +38,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     binding.cheerupSlider.resetSlider()
                 }
             }
+    }
 
+    private fun initializeObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.navigateToFaqScreen.collect {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToFaqFragment())

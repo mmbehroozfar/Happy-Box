@@ -1,6 +1,7 @@
 package com.mmb.happybox.cheerup.utils
 
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.databinding.BindingAdapter
@@ -19,4 +20,9 @@ fun TextView.selected(value: Boolean) {
 @BindingAdapter("lockIfEmpty")
 fun SlideToActView.lockIfEmpty(value: String) {
     isLocked = value.isEmpty()
+}
+
+@BindingAdapter("disableIfEmpty")
+fun Button.disableIfEmpty(text: String) {
+    isEnabled = text.isNotEmpty()
 }

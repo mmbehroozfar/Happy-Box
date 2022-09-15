@@ -31,7 +31,14 @@
         android:id="@+id/happyThingFragment"
         android:name="com.mmb.happybox.cheerup.happything.HappyThingFragment"
         android:label="@string/happy_thing"
-        tools:layout="@layout/fragment_happy_thing" />
+        tools:layout="@layout/fragment_happy_thing">
+
+        <argument
+            android:name="id"
+            android:defaultValue="0L"
+            app:argType="long" />
+
+    </dialog>
 
     <fragment
         android:id="@+id/happyThingsListFragment"
@@ -41,6 +48,9 @@
         <action
             android:id="@+id/action_happyThingsListFragment_to_happyThingFragment"
             app:destination="@id/happyThingFragment" />
+        <action
+            android:id="@+id/action_happyThingsListFragment_to_deleteItemFragment"
+            app:destination="@id/deleteItemFragment" />
     </fragment>
 
     <dialog
@@ -48,5 +58,17 @@
         android:name="com.mmb.happybox.cheerup.result.ResultFragment"
         android:label="@string/result"
         tools:layout="@layout/fragment_result" />
+
+    <dialog
+        android:id="@+id/deleteItemFragment"
+        android:name="com.mmb.happybox.cheerup.delete.DeleteItemFragment"
+        android:label="@string/delete_item"
+        tools:layout="@layout/fragment_delete">
+
+        <argument
+            android:name="id"
+            app:argType="long" />
+
+    </dialog>
 
 </navigation>
