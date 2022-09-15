@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.mmb.happybox.cheerup.R
 import com.mmb.happybox.cheerup.databinding.FragmentDeleteBinding
+import com.mmb.happybox.cheerup.utils.setDialogBackground
 import com.mmb.happybox.common.ui.extenstions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -33,8 +34,5 @@ class DeleteItemFragment : DialogFragment(R.layout.fragment_delete) {
         }
     }
 
-    private fun setDialogBackground() {
-        dialog?.window?.setBackgroundDrawableResource(R.drawable.dialog_background)
-    }
 
 }
