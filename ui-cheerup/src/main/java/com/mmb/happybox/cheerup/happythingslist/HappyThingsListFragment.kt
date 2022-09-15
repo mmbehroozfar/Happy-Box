@@ -29,7 +29,11 @@ class HappyThingsListFragment : Fragment(R.layout.fragment_happy_things_list) {
 
         adapter = HappyThingsPagingAdapter(
             onEditClicked = {
-                findNavController().navigate(HappyThingsListFragmentDirections.actionHappyThingsListFragmentToHappyThingFragment())
+                findNavController().navigate(
+                    HappyThingsListFragmentDirections.actionHappyThingsListFragmentToHappyThingFragment(
+                        it
+                    )
+                )
             },
             onDeleteClicked = {
                 findNavController().navigate(
