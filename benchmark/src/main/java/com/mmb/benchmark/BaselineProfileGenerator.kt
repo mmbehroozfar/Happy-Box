@@ -22,7 +22,7 @@ class BaselineProfileGenerator {
     ) {
         pressHome()
         startActivityAndWait()
-        device.wait(Until.hasObject(By.text("Buy an ic cream")), 50000L)
+        device.wait(Until.hasObject(By.text("To Feel Better")), 50000L)
     }
 
 }
