@@ -29,6 +29,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        getByName("debug") {
+            keyAlias = "key0"
+            keyPassword = "HappyBox"
+            storeFile = rootProject.file("keys/debug-key.jks")
+            storePassword = "HappyBox"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -36,6 +45,13 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+        }
+        create("benchmark") {
+            initWith(getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            isDebuggable = false
+            proguardFiles("benchmark-rules.pro")
         }
     }
 
@@ -77,4 +93,5 @@ dependencies {
     implementation(Libraries.Hilt.core)
     implementation(Libraries.multidex)
     implementation(Libraries.AndroidX.splashScreen)
+    implementation(Libraries.AndroidX.profileInstaller)
 }
