@@ -14,6 +14,9 @@ interface HappyThingDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(happyThingEntity: HappyThingEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(happyThingEntities: List<HappyThingEntity>)
+
     @Query("DELETE FROM happy_things WHERE id = :id")
     suspend fun delete(id: Long)
 

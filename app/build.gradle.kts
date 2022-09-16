@@ -93,5 +93,7 @@ dependencies {
     implementation(Libraries.Hilt.core)
     implementation(Libraries.multidex)
     implementation(Libraries.AndroidX.splashScreen)
+    kapt(Libraries.Hilt.workCompiler)
+    implementation(Libraries.Hilt.work)
     implementation(Libraries.AndroidX.profileInstaller)
 }
