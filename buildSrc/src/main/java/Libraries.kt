@@ -54,6 +54,7 @@ object Libraries {
         const val pagingCommonKtx = "androidx.paging:paging-common-ktx:3.1.0"
         const val splashScreen = "androidx.core:core-splashscreen:1.0.0"
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+        const val workManager = "androidx.work:work-runtime-ktx:2.7.1"
 
         object Navigation {
             const val version = "2.5.1"
@@ -80,16 +81,19 @@ object Libraries {
 
         object Lifecycle {
             private const val version = "2.5.1"
-            const val viweModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+            const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
             const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
         }
     }
 
     object Hilt {
         const val version = "2.43.2"
+        private const val workVersion = "1.0.0"
         const val core = "com.google.dagger:hilt-android:$version"
         const val compiler = "com.google.dagger:hilt-compiler:$version"
         const val testing = "com.google.dagger:hilt-android-testing:$version"
+        const val work = "androidx.hilt:hilt-work:$workVersion"
+        const val workCompiler = "androidx.hilt:hilt-compiler:$workVersion"
     }
 
     object Kotlin {

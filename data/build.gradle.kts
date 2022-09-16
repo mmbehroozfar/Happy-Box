@@ -52,4 +52,7 @@ dependencies {
     implementation(Libraries.AndroidX.ktxCore)
     kapt(Libraries.Hilt.compiler)
     implementation(Libraries.Hilt.core)
+    implementation(Libraries.AndroidX.workManager)
+    kapt(Libraries.Hilt.workCompiler)
+    implementation(Libraries.Hilt.work)
 }
