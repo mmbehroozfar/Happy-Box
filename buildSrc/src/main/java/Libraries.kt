@@ -1,7 +1,7 @@
 object AppMetaData {
     const val id = "com.mmb.happybox"
-    const val compileSdkVersion = 32
-    const val targetSdkVersion = 32
+    const val compileSdkVersion = 33
+    const val targetSdkVersion = 33
     const val minSdkVersion = 21
     const val buildToolsVersion = "33.0.0"
     const val versionCode = 1
@@ -14,7 +14,7 @@ object BuildPlugins {
         const val kotlinVersion = "1.7.10"
         const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
-        const val androidGradlePlugin = "com.android.tools.build:gradle:7.2.2"
+        const val androidGradlePlugin = "com.android.tools.build:gradle:7.3.0"
 
         const val hiltGradlePlugin =
             "com.google.dagger:hilt-android-gradle-plugin:${Libraries.Hilt.version}"
@@ -37,6 +37,8 @@ object BuildPlugins {
         const val kotlinxSerialization = "kotlinx-serialization"
         const val daggerHiltPlugin = "dagger.hilt.android.plugin"
         const val safeArgsKotlinPlugin = "androidx.navigation.safeargs.kotlin"
+        const val androidTest = "com.android.test"
+        const val jetbrainsKotlin = "org.jetbrains.kotlin.android"
     }
 }
 
@@ -54,6 +56,7 @@ object Libraries {
         const val pagingCommonKtx = "androidx.paging:paging-common-ktx:3.1.0"
         const val splashScreen = "androidx.core:core-splashscreen:1.0.0"
         const val recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+        const val profileInstaller = "androidx.profileinstaller:profileinstaller:1.2.0-beta01"
         const val workManager = "androidx.work:work-runtime-ktx:2.7.1"
 
         object Navigation {
@@ -117,7 +120,7 @@ object TestLibraries {
 
     private object Versions {
         const val junit4 = "4.13.1"
-        const val espresso = "3.3.0"
+        const val espresso = "3.4.0"
         const val mockk = "1.11.0"
         const val truth = "1.1"
         const val barista = "4.2.0"
@@ -143,8 +146,11 @@ object TestLibraries {
 
     object Test {
         const val core = "androidx.test:core-ktx:${Versions.test}"
-        const val junit = "androidx.test.ext:junit-ktx:1.1.1"
+        const val junit = "androidx.test.ext:junit:1.1.3"
+        const val junitKtx = "androidx.test.ext:junit-ktx:1.1.1"
         const val runner = "androidx.test:runner:${Versions.test}"
         const val rules = "androidx.test:rules:${Versions.test}"
+        const val macroBenchmark = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha03"
+        const val uiAutomator = "androidx.test.uiautomator:uiautomator:2.2.0"
     }
 }
