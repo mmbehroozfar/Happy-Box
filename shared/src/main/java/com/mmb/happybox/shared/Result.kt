@@ -66,3 +66,7 @@ fun <T> Result<T>?.dataOrNull(): T? {
 fun <T> Result<T>?.requireData(): T {
     return (this as Result.Success).data
 }
+
+fun <T> Result<T>?.requireError(): Exception {
+    return (this as Result.Error).error
+}
