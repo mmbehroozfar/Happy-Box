@@ -119,12 +119,12 @@ object Libraries {
 object TestLibraries {
 
     private object Versions {
-        const val junit4 = "4.13.1"
+        const val junit4 = "4.13.2"
         const val espresso = "3.4.0"
-        const val mockk = "1.11.0"
-        const val truth = "1.1"
+        const val mockk = "1.12.8"
+        const val truth = "1.1.3"
         const val barista = "4.2.0"
-        const val test = "1.2.0"
+        const val test = "1.9.0"
     }
 
     const val AndroidJunitRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -146,10 +146,10 @@ object TestLibraries {
 
     object Test {
         const val core = "androidx.test:core-ktx:${Versions.test}"
-        const val junit = "androidx.test.ext:junit:1.1.3"
-        const val junitKtx = "androidx.test.ext:junit-ktx:1.1.1"
-        const val runner = "androidx.test:runner:${Versions.test}"
-        const val rules = "androidx.test:rules:${Versions.test}"
+        const val junit = "androidx.test.ext:junit:1.1.2"
+        const val junitKtx = "androidx.test.ext:junit-ktx:1.1.2"
+        const val runner = "androidx.test:runner:1.4.0"
+        const val rules = "androidx.test:rules:1.4.0"
         const val macroBenchmark = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha03"
         const val uiAutomator = "androidx.test.uiautomator:uiautomator:2.2.0"
     }
