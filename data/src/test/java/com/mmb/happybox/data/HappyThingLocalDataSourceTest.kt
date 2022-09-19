@@ -1,6 +1,8 @@
-package com.happybox.data
+package com.mmb.happybox.data
 
 import com.google.common.truth.Truth
+import com.mmb.happybox.data.FakeData.DataModel.fakeItem1
+import com.mmb.happybox.data.FakeData.DataModel.fakeItems
 import com.mmb.happybox.data.daos.HappyThingDao
 import com.mmb.happybox.data.datasources.HappyThingLocalDataSourceImpl
 import com.mmb.moveis.data.model.entities.HappyThingEntity
@@ -21,10 +23,6 @@ class HappyThingLocalDataSourceTest {
 
     @RelaxedMockK
     lateinit var happyThingDao: HappyThingDao
-
-    private val fakeItem1 = HappyThingEntity(0, "Buy an Ice Cream")
-    private val fakeItem2 = HappyThingEntity(1, "Buy a Pizza")
-    private val fakeItems = listOf(fakeItem1, fakeItem2)
 
     @Before
     fun setup() {
