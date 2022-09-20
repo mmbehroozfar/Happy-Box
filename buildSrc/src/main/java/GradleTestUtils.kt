@@ -5,6 +5,7 @@ fun DependencyHandlerScope.addUnitTestDependencies() {
     "testImplementation"(TestLibraries.truth)
     "testImplementation"(TestLibraries.jUnit)
     "testImplementation"(TestLibraries.Mockk.core)
+    "testImplementation"(TestLibraries.turbine)
 }
 
 fun DependencyHandlerScope.addInstrumentTestDependencies() {

@@ -3,7 +3,7 @@ package com.mmb.happybox.domain
 import com.google.common.truth.Truth
 import com.mmb.happybox.android_test_shared.CoroutineRule
 import com.mmb.happybox.domain.repositories.HappyThingRepository
-import com.mmb.happybox.domain.usecases.GetHappyThingsUseCase
+import com.mmb.happybox.domain.usecases.GetHappyThingsNamesUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -16,7 +16,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class GetHappyThingsUseCaseTest {
+class GetHappyThingsNamesUseCaseTest {
 
     @Rule
     @JvmField
@@ -24,7 +24,7 @@ class GetHappyThingsUseCaseTest {
 
     private val coroutineDispatcher = UnconfinedTestDispatcher()
 
-    private lateinit var getHappyThingsUseCase: GetHappyThingsUseCase
+    private lateinit var getHappyThingsNamesUseCase: GetHappyThingsNamesUseCase
 
     @RelaxedMockK
     lateinit var happyThingRepository: HappyThingRepository
@@ -32,7 +32,7 @@ class GetHappyThingsUseCaseTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        getHappyThingsUseCase = GetHappyThingsUseCase(
+        getHappyThingsNamesUseCase = GetHappyThingsNamesUseCase(
             happyThingRepository = happyThingRepository,
             coroutineDispatcher = coroutineDispatcher
         )
@@ -44,10 +44,10 @@ class GetHappyThingsUseCaseTest {
             happyThingRepository.getHappyThings()
         } returns flowOf(FakeData.DomainModel.fakeItems)
 
-        val items = getHappyThingsUseCase().first()
+        val items = getHappyThingsNamesUseCase().first()
 
         coVerify(exactly = 1) { happyThingRepository.getHappyThings() }
-        Truth.assertThat(items.first().id).isEqualTo(FakeData.UiModel.fakeItems.first().id)
+        Truth.assertThat(items).contains(FakeData.UiModel.fakeItems.first().name)
     }
 
 }
