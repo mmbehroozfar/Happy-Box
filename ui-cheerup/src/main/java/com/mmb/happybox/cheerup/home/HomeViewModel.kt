@@ -2,7 +2,7 @@ package com.mmb.happybox.cheerup.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mmb.happybox.domain.usecases.GetHappyThingsUseCase
+import com.mmb.happybox.domain.usecases.GetHappyThingsNamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getHappyThingsUseCase: GetHappyThingsUseCase,
+    private val getHappyThingsNamesUseCase: GetHappyThingsNamesUseCase,
 ) : ViewModel() {
 
     private val _happyThings = MutableStateFlow("")
@@ -32,10 +32,9 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun handleGetHappyThings() {
-        getHappyThingsUseCase()
+        getHappyThingsNamesUseCase()
             .onEach {
-                val text = it.shuffled().joinToString(" - ") { item -> item.name }
-                _happyThings.emit(text)
+                _happyThings.emit(it)
             }
             .launchIn(viewModelScope)
     }

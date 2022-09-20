@@ -131,6 +131,7 @@ object TestLibraries {
     const val jUnit = "junit:junit:${Versions.junit4}"
     const val truth = "com.google.truth:truth:${Versions.truth}"
     const val barista = "com.adevinta.android:barista:${Versions.barista}"
+    const val turbine = "app.cash.turbine:turbine:0.10.0"
 
     object Espresso {
         const val core = "androidx.test.espresso:espresso-core:${Versions.espresso}"
