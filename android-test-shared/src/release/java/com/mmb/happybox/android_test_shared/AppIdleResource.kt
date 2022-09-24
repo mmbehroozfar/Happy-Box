@@ -5,8 +5,8 @@ import androidx.test.espresso.idling.CountingIdlingResource
 
 object AppIdleResource {
 
-    fun increment()
+    fun increment() = Unit
 
-    fun decrement()
+    fun decrement() = Unit
 
 }

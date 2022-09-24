@@ -14,6 +14,8 @@
 
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="fontFamily">@font/google_sans</item>
+
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialog</item>
     </style>
 
     <style name="AppTheme.SplashScreen" parent="Theme.SplashScreen">
