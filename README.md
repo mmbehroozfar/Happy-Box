@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/mmbehroozfar/Happy-Box/pictures/header.png" alt="Logo">
+    <img src="https://raw.githubusercontent.com/mmbehroozfar/Happy-Box/develop/pictures/header.png" alt="Logo">
  </div>
  
 <p>
@@ -26,7 +26,7 @@
 
 # Happy Box Application
 
-<img src="https://raw.githubusercontent.com/mmbehroozfar/Happy-Box/pictures/preview.gif" alt="Logo" align="right">
+<img src="https://raw.githubusercontent.com/mmbehroozfar/Happy-Box/develop/pictures/preview.gif" alt="Logo" align="right">
  
 You can keep your happy things in this app.
 
