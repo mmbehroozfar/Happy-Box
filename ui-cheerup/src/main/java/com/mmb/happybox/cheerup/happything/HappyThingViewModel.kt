@@ -4,6 +4,7 @@ import android.text.Editable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.domain.usecases.GetHappyThingUseCase
 import com.mmb.happybox.domain.usecases.SaveHappyThingUseCase
 import com.mmb.happybox.model.HappyThing
@@ -31,6 +32,7 @@ class HappyThingViewModel @Inject constructor(
 
     init {
         savedStateHandle.get<Long>("id").takeIf { it != 0L }?.let {
+            AppIdleResource.increment()
             handleGetHappyThing(it)
         }
     }
@@ -40,23 +42,28 @@ class HappyThingViewModel @Inject constructor(
             getHappyThingUseCase(id)
                 .onSuccess {
                     _happyThing.emit(it)
+                    AppIdleResource.decrement()
                 }
         }
     }
 
     fun onNameChanged(value: Editable?) {
+        AppIdleResource.increment()
         viewModelScope.launch {
             _happyThing.emit(
                 _happyThing.value.copy(name = value.toString())
             )
+            AppIdleResource.decrement()
         }
     }
 
     fun onSaveClicked() {
+        AppIdleResource.increment()
         viewModelScope.launch {
             saveHappyThingUseCase(happyThing.value)
                 .onSuccess {
                     _navigateUp.emit(Unit)
+                    AppIdleResource.decrement()
                 }
         }
     }

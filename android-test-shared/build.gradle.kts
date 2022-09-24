@@ -33,6 +33,10 @@ android {
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
     }
 
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
     kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
 }
 
@@ -45,8 +49,8 @@ dependencies {
     implementation(Libraries.Hilt.testing)
     implementation(Libraries.AndroidX.Fragment.test)
     implementation(TestLibraries.Espresso.core)
+    implementation(TestLibraries.Espresso.idlingResource)
     implementation(TestLibraries.Mockk.android)
     implementation(TestLibraries.Test.runner)
     implementation(Libraries.Kotlin.Coroutine.test)
-    implementation(TestLibraries.barista) { exclude("org.jetbrains.kotlin") }
 }

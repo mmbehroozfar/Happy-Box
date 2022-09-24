@@ -130,7 +130,6 @@ object TestLibraries {
     const val AndroidJunitRunner = "androidx.test.runner.AndroidJUnitRunner"
     const val jUnit = "junit:junit:${Versions.junit4}"
     const val truth = "com.google.truth:truth:${Versions.truth}"
-    const val barista = "com.adevinta.android:barista:${Versions.barista}"
     const val turbine = "app.cash.turbine:turbine:0.10.0"
 
     object Espresso {
@@ -153,5 +152,7 @@ object TestLibraries {
         const val rules = "androidx.test:rules:1.4.0"
         const val macroBenchmark = "androidx.benchmark:benchmark-macro-junit4:1.2.0-alpha03"
         const val uiAutomator = "androidx.test.uiautomator:uiautomator:2.2.0"
+        const val workManager = "androidx.work:work-testing:2.7.1"
+        const val archCore = "androidx.arch.core:core-testing:2.1.0"
     }
 }

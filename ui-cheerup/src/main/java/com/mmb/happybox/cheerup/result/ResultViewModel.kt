@@ -2,6 +2,7 @@ package com.mmb.happybox.cheerup.result
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.domain.usecases.GetRandomHappyThingUseCase
 import com.mmb.happybox.shared.onError
 import com.mmb.happybox.shared.onSuccess
@@ -25,6 +26,7 @@ class ResultViewModel @Inject constructor(
     val onCloseDialog: SharedFlow<Unit> get() = _onCloseDialog
 
     init {
+        AppIdleResource.increment()
         handleGetHappyThing()
     }
 
@@ -33,16 +35,20 @@ class ResultViewModel @Inject constructor(
             getRandomHappyThingUseCase()
                 .onSuccess {
                     _happyThing.emit(it.name)
+                    AppIdleResource.decrement()
                 }
                 .onError {
                     _onCloseDialog.emit(Unit)
+                    AppIdleResource.decrement()
                 }
         }
     }
 
     fun onDoThatClicked() {
+        AppIdleResource.increment()
         viewModelScope.launch {
             _onCloseDialog.emit(Unit)
+            AppIdleResource.decrement()
         }
     }
 

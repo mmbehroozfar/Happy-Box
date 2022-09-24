@@ -7,10 +7,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.mmb.happybox.data.database.HappyBoxDatabase
 import com.mmb.happybox.data.database.HappyBoxRoomDatabase
 import com.mmb.happybox.data.worker.DefaultDataGeneratorWorker
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,26 +18,17 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DatabaseModule {
+object DatabaseModule {
 
-    @Binds
+    @Provides
     @Singleton
-    abstract fun bindMovieDatabase(
-        db: HappyBoxRoomDatabase,
-    ): HappyBoxDatabase
-
-
-    companion object {
-
-        @Provides
-        @Singleton
-        fun provideDatabase(
-            @ApplicationContext context: Context,
-            workManager: WorkManager,
-        ): HappyBoxRoomDatabase =
-            Room.databaseBuilder(context, HappyBoxRoomDatabase::class.java, "happy-box-db")
-                .addCallback(object : RoomDatabase.Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
+    fun provideDatabase(
+        @ApplicationContext context: Context,
+        workManager: WorkManager,
+    ): HappyBoxRoomDatabase =
+        Room.databaseBuilder(context, HappyBoxRoomDatabase::class.java, "happy-box-db")
+            .addCallback(object : RoomDatabase.Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
                         val request = OneTimeWorkRequestBuilder<DefaultDataGeneratorWorker>()
                             .addTag(DefaultDataGeneratorWorker.TAG)
@@ -54,11 +43,4 @@ abstract class DatabaseModule {
                 })
                 .build()
 
-        @Provides
-        @Singleton
-        fun provideHappyThingDao(
-            db: HappyBoxRoomDatabase,
-        ) = db.happyThingsDao()
-
-    }
 }

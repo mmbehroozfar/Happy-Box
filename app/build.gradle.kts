@@ -26,7 +26,7 @@ android {
         versionCode = AppMetaData.versionCode
         versionName = AppMetaData.versionName
         multiDexEnabled = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.mmb.happybox.android_test_shared.HiltTestRunner"
     }
 
     signingConfigs {
@@ -65,6 +65,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
     }
 
     kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()

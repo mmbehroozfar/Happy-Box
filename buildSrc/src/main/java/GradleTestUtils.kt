@@ -6,6 +6,7 @@ fun DependencyHandlerScope.addUnitTestDependencies() {
     "testImplementation"(TestLibraries.jUnit)
     "testImplementation"(TestLibraries.Mockk.core)
     "testImplementation"(TestLibraries.turbine)
+    "testImplementation"(TestLibraries.Test.archCore)
 }
 
 fun DependencyHandlerScope.addInstrumentTestDependencies() {
@@ -15,4 +16,14 @@ fun DependencyHandlerScope.addInstrumentTestDependencies() {
     "androidTestImplementation"(TestLibraries.Mockk.android)
     "androidTestImplementation"(TestLibraries.truth)
     "androidTestImplementation"(TestLibraries.jUnit)
+    "androidTestImplementation"(TestLibraries.Espresso.core)
+    "androidTestImplementation"(TestLibraries.Espresso.contrib) {
+        exclude(mapOf("group" to "org.checkerframework"))
+    }
+    "androidTestImplementation"(Libraries.Hilt.testing)
+    "androidTestImplementation"(TestLibraries.Test.runner)
+    "androidTestImplementation"(TestLibraries.Test.rules)
+    "androidTestImplementation"(TestLibraries.Test.workManager)
+    "androidTestImplementation"(TestLibraries.Test.archCore)
+    "kaptAndroidTest"(Libraries.Hilt.compiler)
 }

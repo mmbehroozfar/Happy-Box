@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.cheerup.R
 import com.mmb.happybox.cheerup.databinding.FragmentHomeBinding
 import com.mmb.happybox.common.ui.extenstions.viewBinding
@@ -30,13 +31,31 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         initializeObservers()
     }
 
-    private fun initializeListeners() {
-        binding.cheerupSlider.onSlideCompleteListener =
+    private fun initializeListeners() = with(binding) {
+        cheerupSlider.onSlideCompleteListener =
             object : SlideToActView.OnSlideCompleteListener {
                 override fun onSlideComplete(view: SlideToActView) {
                     findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToResultFragment())
-                    binding.cheerupSlider.resetSlider()
+                    cheerupSlider.resetSlider()
                 }
+            }
+        cheerupSlider.onSlideToActAnimationEventListener =
+            object : SlideToActView.OnSlideToActAnimationEventListener {
+                override fun onSlideCompleteAnimationEnded(view: SlideToActView) {
+                    AppIdleResource.decrement()
+                }
+
+                override fun onSlideCompleteAnimationStarted(
+                    view: SlideToActView,
+                    threshold: Float
+                ) {
+                    AppIdleResource.increment()
+                }
+
+                override fun onSlideResetAnimationEnded(view: SlideToActView) = Unit
+
+                override fun onSlideResetAnimationStarted(view: SlideToActView) = Unit
+
             }
     }
 
