@@ -55,8 +55,10 @@ android {
 dependencies {
     implementation(project(":common-ui"))
     implementation(project(":shared"))
+    implementation(project(":android-test-shared"))
 
     testImplementation(project(":android-test-shared"))
+    androidTestImplementation(project(":android-test-shared"))
     addUnitTestDependencies()
 
     kapt(Libraries.Hilt.compiler)

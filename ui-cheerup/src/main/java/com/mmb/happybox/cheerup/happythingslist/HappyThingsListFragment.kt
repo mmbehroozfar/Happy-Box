@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.cheerup.R
 import com.mmb.happybox.cheerup.databinding.FragmentHappyThingsListBinding
 import com.mmb.happybox.common.ui.extenstions.viewBinding
@@ -39,6 +40,7 @@ class HappyThingsListFragment : Fragment(R.layout.fragment_happy_things_list) {
         }
         lifecycleScope.launchWhenCreated {
             viewModel.happyThings.collect {
+                AppIdleResource.decrement()
                 adapter.submitData(it)
             }
         }

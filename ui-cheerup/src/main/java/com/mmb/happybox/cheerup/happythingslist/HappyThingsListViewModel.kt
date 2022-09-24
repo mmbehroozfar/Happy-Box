@@ -3,6 +3,7 @@ package com.mmb.happybox.cheerup.happythingslist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.domain.usecases.ObservePagedHappyThingsUseCase
 import com.mmb.happybox.model.HappyThing
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,10 @@ class HappyThingsListViewModel @Inject constructor(
 
     private val _navigateToHappyThingScreen = MutableSharedFlow<Unit>(replay = 0)
     val navigateToHappyThingScreen: SharedFlow<Unit> get() = _navigateToHappyThingScreen
+
+    init {
+        AppIdleResource.increment()
+    }
 
     fun onAddItemClicked() {
         viewModelScope.launch {

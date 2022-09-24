@@ -2,6 +2,7 @@ package com.mmb.happybox.cheerup.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mmb.happybox.android_test_shared.AppIdleResource
 import com.mmb.happybox.domain.usecases.GetHappyThingsNamesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -28,6 +29,7 @@ class HomeViewModel @Inject constructor(
     val navigateToHappyThingsListScreen: SharedFlow<Unit> get() = _navigateToHappyThingsListScreen
 
     init {
+        AppIdleResource.increment()
         handleGetHappyThings()
     }
 
@@ -35,6 +37,7 @@ class HomeViewModel @Inject constructor(
         getHappyThingsNamesUseCase()
             .onEach {
                 _happyThings.emit(it)
+                AppIdleResource.decrement()
             }
             .launchIn(viewModelScope)
     }

@@ -20,6 +20,7 @@
         tools:context=".result.ResultFragment">
 
         <TextView
+            android:id="@+id/result_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{vm.happyThing}"
